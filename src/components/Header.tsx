@@ -1,10 +1,10 @@
+import { HeaderContainer } from './Header.styles'
 import BlipLogo from '../assets/blip-logo.svg'
 
 export function Header() {
   return (
-    <header>
+    <HeaderContainer>
       <img src={BlipLogo} alt="Logo Blip" />
-      <strong>Blip</strong>
-    </header>
+    </HeaderContainer>
   )
 }
