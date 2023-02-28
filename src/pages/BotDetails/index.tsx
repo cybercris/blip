@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 
 import { Header } from './components/Header'
 import { Summary } from './components/Summary'
+import { Footer } from './components/Footer'
 
 import { BotDetailed } from '../../@types'
 import { fetch } from '../../utils/fetch'
@@ -25,14 +26,9 @@ export function BotDetails() {
   return (
     <DetailsContainer>
       <Header bot={bot} />
-      <HeaderSeparator />
+      <hr />
       <Summary bot={bot} />
-      <FooterSeparator />
-      <footer>
-        <p>
-          ©2019, BLiP Todos os direitos reservados <span>| Termos de Uso</span>
-        </p>
-      </footer>
+      <Footer />
     </DetailsContainer>
   )
 }

@@ -9,6 +9,7 @@ interface ImageProps {
 export const StarImage = styled.img<ImageProps>`
   height: 1.5rem;
   margin-right: 20px;
+  z-index: 1;
 
   ${(props) =>
     props.float &&

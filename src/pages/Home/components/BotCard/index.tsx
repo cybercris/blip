@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { Card } from '../../../../components/Card'
@@ -13,20 +14,30 @@ interface BotCardProps {
 }
 
 export function BotCard({ bot, index }: BotCardProps) {
+  function handleLinkClick(
+    event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
+  ) {
+    if (event.button !== 0) {
+      event.preventDefault()
+    }
+  }
   return (
-    <BotCardContainer>
-      {/* <Link to={`${bot?.shortName}/details`}> */}
-      <Card key={index}>
-        <BotContainer>
-          <StarFavorite bot={bot} float />
-          <InfoContainer>
-            <BotImg />
-            <h5>{bot?.name}</h5>
-            <p>{bot?.type}</p>
-          </InfoContainer>
-        </BotContainer>
-      </Card>
-      {/* </Link> */}
+    <BotCardContainer key={index}>
+      <Link
+        to={`${bot?.shortName}/details`}
+        onMouseDown={(event) => handleLinkClick(event)}
+      >
+        <Card>
+          <BotContainer>
+            <StarFavorite bot={bot} float />
+            <InfoContainer>
+              <BotImg />
+              <h5>{bot?.name}</h5>
+              <p>{bot?.type}</p>
+            </InfoContainer>
+          </BotContainer>
+        </Card>
+      </Link>
     </BotCardContainer>
   )
 }

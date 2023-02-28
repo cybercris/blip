@@ -6,7 +6,7 @@ export const BotsSectionContainer = styled.section`
 
   hr {
     height: 2px;
-    border-color: #b9cbd3;
+    border-color: ${(props) => props.theme['gray-400']};
     margin: 2.5rem 0;
   }
 `

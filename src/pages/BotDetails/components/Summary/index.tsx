@@ -28,7 +28,7 @@ export function Summary({ bot }: SummaryProps) {
     <SummaryContainer>
       <SectionContainer>
         <GroupContainer>
-          <Card>
+          <Card mr={22}>
             <RegionContainer>
               <p>Region and idiom</p>
               <h5>{bot?.culture}</h5>
@@ -36,7 +36,7 @@ export function Summary({ bot }: SummaryProps) {
               <h5>(UTC - 03:00) Brasília</h5>
             </RegionContainer>
           </Card>
-          <Card>
+          <Card grow>
             <ActiveUsersContainer>
               <img src={ActiveUserImg} alt="Active users" />
               <div>
@@ -47,7 +47,7 @@ export function Summary({ bot }: SummaryProps) {
           </Card>
         </GroupContainer>
         <GroupContainer>
-          <Card>
+          <Card mr={24}>
             <MessagesReceivedContainer>
               <img src={MessageReceivedImg} alt="Messages received" />
               <div>
@@ -56,7 +56,7 @@ export function Summary({ bot }: SummaryProps) {
               </div>
             </MessagesReceivedContainer>
           </Card>
-          <Card>
+          <Card grow>
             <MessagesSentContainer>
               <img src={MessageSentImg} alt="Messages sent" />
               <div>

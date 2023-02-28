@@ -2,22 +2,30 @@ import styled from 'styled-components'
 
 export const SummaryContainer = styled.div`
   display: flex;
-  justify-content: space-between;
   align-items: center;
 `
 
 export const SectionContainer = styled.section`
   display: flex;
   flex-direction: column;
+  margin-right: 2.5rem;
+  flex: 1;
 `
 
 export const GroupContainer = styled.div`
   display: flex;
+  flex-wrap: wrap;
+
+  &:first-child {
+    margin-bottom: 24px;
+  }
 `
 
 export const DataContainer = styled.div`
   display: flex;
   height: 13.25rem;
+  flex-wrap: wrap;
+  flex: 1;
 
   img {
     height: 3.5rem;
@@ -27,79 +35,101 @@ export const DataContainer = styled.div`
   p {
     margin-bottom: 8px;
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 16px;
-    color: #52636c;
+    color: ${(props) => props.theme['gray-850']};
   }
 
   h5 {
     margin-bottom: 16px;
     font-weight: 600;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 16px;
-    color: #52636c;
+    color: ${(props) => props.theme['gray-850']};
   }
 
   h1 {
     font-weight: 800;
-    font-size: 24px;
-    color: #52636c;
+    font-size: 1.5rem;
+    color: ${(props) => props.theme['gray-850']};
   }
 
   h4 {
     font-weight: 400;
-    font-size: 14px;
-    color: #52636c;
+    font-size: 0.88rem;
+    color: ${(props) => props.theme['gray-850']};
   }
 `
 
 export const RegionContainer = styled(DataContainer)`
   flex-direction: column;
-  width: 18.38rem;
+  min-width: 18.38rem;
   padding-top: 32px;
   padding-left: 40px;
+
+  @media (min-width: 768px) {
+    width: 15rem;
+  }
 `
 
 export const ActiveUsersContainer = styled(DataContainer)`
   align-items: center;
   width: 38.31rem;
   padding-left: 32px;
+
+  @media (max-width: 768px) {
+    width: 30rem;
+  }
 `
 
 export const MessagesReceivedContainer = styled(DataContainer)`
   align-items: center;
+  width: 31.56rem;
   padding-left: 32px;
   margin-right: 24px;
-  width: 31.56rem;
+
+  @media (max-width: 768px) {
+    width: 24rem;
+  }
 `
 
 export const MessagesSentContainer = styled(DataContainer)`
-  align-items: center;
   display: flex;
-  padding-left: 32px;
+  align-items: center;
   width: 25rem;
+  padding-left: 32px;
+
+  @media (max-width: 768px) {
+    width: 18rem;
+  }
 `
 
 export const AccountContainer = styled.aside`
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-wrap: wrap;
 
   img {
-    margin-bottom: 50px;
+    margin-bottom: 3.1rem;
     height: 12.5rem;
+
+    @media (max-width: 768px) {
+      margin-bottom: 2rem;
+      height: 9rem;
+    }
   }
 
   h3 {
     margin-bottom: 24px;
     font-weight: 700;
-    font-size: 24px;
+    font-size: 1.5rem;
   }
 
   p {
     font-weight: 400;
-    font-size: 16px;
-    color: #8ca0b3;
+    font-size: 1rem;
+    color: ${(props) => props.theme['gray-500']};
     margin-bottom: 4px;
   }
 `

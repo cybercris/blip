@@ -12,13 +12,17 @@ export function Header({ bot }: HeaderProps) {
   return (
     <HeaderContainer>
       <InfoContainer>
-        <img src={BotAvatarImg} alt="Bot Avatar" />
+        {!bot?.image ? (
+          <img src={BotAvatarImg} alt="Bot Avatar" />
+        ) : (
+          <img src={bot.image} alt="Bot Avatar" />
+        )}
         <WrapperContainer>
           <h2>{bot?.name}</h2>
           <p>Id: {bot?.shortName}</p>
         </WrapperContainer>
       </InfoContainer>
-      {/* <p>Created at {dateFormatter(bot?.created)}</p> */}
+      {bot?.created && <p>Created at {dateFormatter(bot?.created)}</p>}
     </HeaderContainer>
   )
 }

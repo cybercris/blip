@@ -5,6 +5,7 @@ export const BotCardContainer = styled.li`
 
   a {
     text-decoration: none;
+    color: ${(props) => props.theme['gray-850']};
 
     &:visited {
       color: inherit;
@@ -28,16 +29,16 @@ export const InfoContainer = styled.div`
 
   h5 {
     font-weight: 700;
-    font-size: 16px;
+    font-size: 1rem;
     line-height: 22px;
-    color: #52636c;
+    color: ${(props) => props.theme['gray-850']};
   }
 
   p {
     font-weight: 400;
-    font-size: 12px;
+    font-size: 0.75rem;
     line-height: 22px;
-    color: #738192;
+    color: ${(props) => props.theme['gray-600']};
   }
 `
 

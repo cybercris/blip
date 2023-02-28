@@ -3,9 +3,14 @@ import { CardContainer } from './styles'
 
 interface CardProps {
   grow?: boolean
+  mr?: number
   children: ReactNode
 }
 
-export function Card({ grow, children }: CardProps) {
-  return <CardContainer grow={grow}>{children}</CardContainer>
+export function Card({ grow, mr, children }: CardProps) {
+  return (
+    <CardContainer grow={grow} mr={mr}>
+      {children}
+    </CardContainer>
+  )
 }

@@ -7,6 +7,23 @@ export const HeaderContainer = styled.header`
   align-items: center;
   margin-bottom: 2.5rem;
   flex-wrap: wrap;
+  justify-content: space-between;
+
+  h1 {
+    flex-basis: auto;
+    flex-grow: 0;
+    flex-shrink: 1;
+    font-size: 2rem;
+    font-weight: 800;
+    color: ${(props) => props.theme['gray-900']};
+    margin-top: 8px;
+  }
+`
+
+export const UserActionsContainer = styled.div`
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 
   input {
     width: 19.5rem;

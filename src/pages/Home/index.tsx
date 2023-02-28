@@ -46,7 +46,6 @@ export function Home() {
 
   return (
     <HomeContainer>
-      <h1>My chatbots</h1>
       <Header
         searchQuery={searchQuery}
         handleSearchQueryChange={setSearchQuery}

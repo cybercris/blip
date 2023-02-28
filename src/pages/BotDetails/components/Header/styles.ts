@@ -4,6 +4,12 @@ export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
+
+  img {
+    height: 3.5rem;
+    width: 3.5rem;
+    border-radius: 50%;
+  }
 `
 
 export const InfoContainer = styled.div`
@@ -20,13 +26,13 @@ export const WrapperContainer = styled.div`
 
   h2 {
     font-weight: 700;
-    font-size: 24px;
-    color: #56616e;
+    font-size: 1.5rem;
+    color: ${(props) => props.theme['gray-900']};
   }
 
   p {
     font-weight: 400;
-    font-size: 14px;
-    color: #8ca0b3;
+    font-size: 0.9rem;
+    color: ${(props) => props.theme['gray-500']};
   }
 `

@@ -3,6 +3,17 @@ import styled from 'styled-components'
 export const LineContainer = styled.li`
   display: flex;
   align-items: center;
+
+  a {
+    text-decoration: none;
+    flex: 1;
+    color: ${(props) => props.theme['gray-850']};
+
+    &:visited {
+      color: inherit;
+      text-decoration: none;
+    }
+  }
 `
 
 export const BotContainer = styled.div`
@@ -11,6 +22,7 @@ export const BotContainer = styled.div`
   flex: 1;
   align-items: center;
 `
+
 export const InfoContainer = styled.div`
   display: flex;
   flex: 1;
