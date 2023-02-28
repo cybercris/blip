@@ -1,8 +1,11 @@
 import { IconButton } from '../../../../components/IconButton'
-import { StarImage } from './styles'
-import StarImg from '../../../../assets/star.svg'
 import { useFavorites } from '../../../../contexts/FavoritesContext'
 import { Bot } from '../../../../@types'
+
+import StarImg from '../../../../assets/star.svg'
+import StarFilledImg from '../../../../assets/star-filled.svg'
+
+import { StarImage } from './styles'
 
 interface StarFavoriteProps {
   bot: Bot
@@ -14,7 +17,11 @@ export function StarFavorite({ bot, float }: StarFavoriteProps) {
 
   return (
     <IconButton onClick={() => toggleFavorite(bot)}>
-      <StarImage src={StarImg} alt="Favorite Button" float={float} />
+      <StarImage
+        src={!bot?.isFavorite ? StarImg : StarFilledImg}
+        alt="Favorite Button"
+        float={float}
+      />
     </IconButton>
   )
 }

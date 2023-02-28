@@ -28,41 +28,28 @@ export function FavoritesContextProvider({
   )
   const [searchQuery, setSearchQuery] = useState('')
 
-  function isFavorite(bot: Bot) {
-    return favorites.includes(bot)
-  }
-
-  function isNonFavorite(bot: Bot) {
-    return nonFavorites.includes(bot)
-  }
-
   function addFavorite(bot: Bot) {
     setFavorites([...favorites, bot])
-  }
-
-  function addNonFavorite(bot: Bot) {
-    setNonFavorites([...nonFavorites, bot])
-  }
-
-  function removeFavorite(bot: Bot) {
-    setFavorites(favorites.filter((favorite) => favorite.name !== bot.name))
-  }
-
-  function removeNonFavorite(bot: Bot) {
     setNonFavorites(
-      nonFavorites.filter((nonFavorite) => nonFavorite.name !== bot.name),
+      nonFavorites.filter((favorite) => favorite.name !== bot.name),
     )
   }
 
+  function removeFavorite(bot: Bot) {
+    setNonFavorites([...nonFavorites, bot])
+    setFavorites(favorites.filter((favorite) => favorite.name !== bot.name))
+  }
+
   function toggleFavorite(bot: Bot) {
-    if (isFavorite(bot)) {
+    if (favorites.includes(bot)) {
       removeFavorite(bot)
-      addNonFavorite(bot)
-    } else if (isNonFavorite(bot)) {
-      removeNonFavorite(bot)
+      bot.isFavorite = false
+    } else if (nonFavorites.includes(bot)) {
       addFavorite(bot)
+      bot.isFavorite = true
     } else {
       addFavorite(bot)
+      bot.isFavorite = true
     }
   }
 
@@ -72,6 +59,12 @@ export function FavoritesContextProvider({
   const nonFavoritesBots = bots.filter(
     (bot) => !favorites.find((favorite) => favorite.name === bot.name),
   )
+  favoritesBots.forEach((bot) => {
+    bot.isFavorite = true
+  })
+  nonFavoritesBots.forEach((bot) => {
+    bot.isFavorite = false
+  })
 
   return (
     <FavoritesContext.Provider
