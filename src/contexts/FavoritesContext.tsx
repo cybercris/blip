@@ -61,12 +61,10 @@ export function FavoritesContextProvider({
 
     if (isFavorite) {
       removeFavorite(bot)
-      bot.isFavorite = false
     }
 
     if (!isFavorite) {
       addFavorite(bot)
-      bot.isFavorite = true
     }
   }
 

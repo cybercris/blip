@@ -34,7 +34,7 @@ export function BotsContextProvider({ children }: BotsContextProviderProps) {
   }, [])
 
   function addBots(newBots: Bot[]) {
-    const updatedBots = updateBots([...bots, ...newBots])
+    const updatedBots = updateBots(newBots)
     setBots(updatedBots)
   }
 
