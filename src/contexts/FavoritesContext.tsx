@@ -24,41 +24,61 @@ export function FavoritesContextProvider({
   const [favorites, setFavorites] = useLocalStorage<Bot[]>('favorites', [])
   const [nonFavorites, setNonFavorites] = useLocalStorage<Bot[]>(
     'nonFavorites',
-    [],
+    bots,
   )
   const [searchQuery, setSearchQuery] = useState('')
 
-  function addFavorite(bot: Bot) {
-    setFavorites([...favorites, bot])
-    setNonFavorites(
-      nonFavorites.filter((favorite) => favorite.name !== bot.name),
+  function moveBotBetweenLists(bot: Bot, sourceList: Bot[], targetList: Bot[]) {
+    const updatedSourceList = sourceList.filter(
+      (sourceBot) => sourceBot.name !== bot.name,
     )
+    const updatedTargetList = [...targetList, bot]
+    return [updatedSourceList, updatedTargetList]
+  }
+
+  function addFavorite(bot: Bot) {
+    const [updatedNonFavorites, updatedFavorites] = moveBotBetweenLists(
+      bot,
+      nonFavorites ?? [],
+      favorites ?? [],
+    )
+    setNonFavorites(updatedNonFavorites)
+    setFavorites(updatedFavorites)
   }
 
   function removeFavorite(bot: Bot) {
-    setNonFavorites([...nonFavorites, bot])
-    setFavorites(favorites.filter((favorite) => favorite.name !== bot.name))
+    const [updatedFavorites, updatedNonFavorites] = moveBotBetweenLists(
+      bot,
+      favorites ?? [],
+      nonFavorites ?? [],
+    )
+    setFavorites(updatedFavorites)
+    setNonFavorites(updatedNonFavorites)
   }
 
   function toggleFavorite(bot: Bot) {
-    if (favorites.includes(bot)) {
+    const isFavorite = favorites?.some((favorite) => favorite.name === bot.name)
+
+    if (isFavorite) {
       removeFavorite(bot)
       bot.isFavorite = false
-    } else if (nonFavorites.includes(bot)) {
-      addFavorite(bot)
-      bot.isFavorite = true
-    } else {
+    }
+
+    if (!isFavorite) {
       addFavorite(bot)
       bot.isFavorite = true
     }
   }
 
-  const favoritesBots = bots.filter((bot) =>
-    favorites.find((favorite) => favorite.name === bot.name),
-  )
-  const nonFavoritesBots = bots.filter(
-    (bot) => !favorites.find((favorite) => favorite.name === bot.name),
-  )
+  function getFilteredBots(botList: Bot[], favoriteList: Bot[]): Bot[] {
+    return botList.filter((bot) =>
+      favoriteList.some((favorite) => favorite.name === bot.name),
+    )
+  }
+
+  const favoritesBots = getFilteredBots(bots, favorites ?? [])
+  const nonFavoritesBots = getFilteredBots(bots, nonFavorites ?? [])
+
   favoritesBots.forEach((bot) => {
     bot.isFavorite = true
   })

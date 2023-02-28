@@ -7,6 +7,7 @@ import {
 } from 'react'
 import { Bot } from '../@types'
 import { api } from '../services/api'
+import { generateShortName } from '../utils/formatter'
 
 interface BotsContextType {
   bots: Bot[]
@@ -23,15 +24,25 @@ export function BotsContextProvider({ children }: BotsContextProviderProps) {
   const [bots, setBots] = useState<Bot[]>([])
 
   useEffect(() => {
-    const fetchBots = async () => {
+    async function fetchBots() {
       const response = await api.get('/bots')
-      setBots(response.data)
+      const updatedBots = updateBots(response.data)
+      setBots(updatedBots)
     }
+
     fetchBots()
   }, [])
 
-  function addBots(bots: Bot[]) {
-    setBots(bots)
+  function addBots(newBots: Bot[]) {
+    const updatedBots = updateBots([...bots, ...newBots])
+    setBots(updatedBots)
+  }
+
+  function updateBots(botsToUpdate: Bot[]): Bot[] {
+    return botsToUpdate.map((bot: Bot) => ({
+      ...bot,
+      shortName: generateShortName(bot.name),
+    }))
   }
 
   return (

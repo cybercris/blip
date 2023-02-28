@@ -1,27 +1,39 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
-type StorageKey = string
+type SetValue<T> = (value: T) => void
+type UseLocalStorageResult<T> = [T | undefined, SetValue<T>]
 
 function useLocalStorage<T>(
-  key: StorageKey,
+  key: string,
   initialValue: T,
-): [T, (value: T) => void] {
-  const [storedValue, setStoredValue] = useState<T>(() => {
-    const item = window.localStorage.getItem(key)
-
-    if (item) {
-      return JSON.parse(item)
+): UseLocalStorageResult<T> {
+  const [storedValue, setStoredValue] = useState<T | undefined>(() => {
+    try {
+      const item = window.localStorage.getItem(key)
+      if (item === null || item === undefined) {
+        return undefined
+      }
+      return JSON.parse(item) as T
+    } catch (error) {
+      console.error(error)
+      return undefined
     }
-
-    return initialValue
   })
 
-  const setValue = (value: T) => {
-    setStoredValue(value)
-    window.localStorage.setItem(key, JSON.stringify(value))
-  }
+  useEffect(() => {
+    if (storedValue === undefined) {
+      window.localStorage.removeItem(key)
+    } else {
+      try {
+        window.localStorage.setItem(key, JSON.stringify(storedValue))
+      } catch (error) {
+        console.error(error)
+        window.localStorage.removeItem(key)
+      }
+    }
+  }, [key, storedValue])
 
-  return [storedValue, setValue]
+  return [storedValue ?? initialValue, setStoredValue]
 }
 
 export default useLocalStorage
