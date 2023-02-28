@@ -8,7 +8,7 @@ import { Footer } from './components/Footer'
 import { BotDetailed } from '../../@types'
 import { fetch } from '../../utils/fetch'
 
-import { DetailsContainer, FooterSeparator, HeaderSeparator } from './styles'
+import { DetailsContainer } from './styles'
 
 export function BotDetails() {
   const { shortName } = useParams()
