@@ -1,5 +1,5 @@
-import { HeaderContainer } from './Header.styles'
-import BlipLogo from '../assets/blip-logo.svg'
+import { HeaderContainer } from './styles'
+import BlipLogo from '../../assets/blip-logo.svg'
 
 export function Header() {
   return (
