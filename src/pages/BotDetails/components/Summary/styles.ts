@@ -3,6 +3,7 @@ import styled from 'styled-components'
 export const SummaryContainer = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 `
 
 export const SectionContainer = styled.section`
@@ -63,44 +64,44 @@ export const DataContainer = styled.div`
 
 export const RegionContainer = styled(DataContainer)`
   flex-direction: column;
-  min-width: 18.38rem;
+  min-width: 17rem;
   padding-top: 32px;
   padding-left: 40px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 1080px) {
     width: 15rem;
   }
 `
 
 export const ActiveUsersContainer = styled(DataContainer)`
   align-items: center;
-  width: 38.31rem;
+  width: 23rem;
   padding-left: 32px;
 
-  @media (max-width: 768px) {
-    width: 30rem;
+  @media (max-width: 1080px) {
+    width: 20rem;
   }
 `
 
 export const MessagesReceivedContainer = styled(DataContainer)`
   align-items: center;
-  width: 31.56rem;
+  width: 20rem;
   padding-left: 32px;
   margin-right: 24px;
 
-  @media (max-width: 768px) {
-    width: 24rem;
+  @media (max-width: 1080px) {
+    width: 18rem;
   }
 `
 
 export const MessagesSentContainer = styled(DataContainer)`
   display: flex;
   align-items: center;
-  width: 25rem;
+  width: 19rem;
   padding-left: 32px;
 
-  @media (max-width: 768px) {
-    width: 18rem;
+  @media (max-width: 1080px) {
+    width: 17rem;
   }
 `
 
@@ -114,7 +115,7 @@ export const AccountContainer = styled.aside`
     margin-bottom: 3.1rem;
     height: 12.5rem;
 
-    @media (max-width: 768px) {
+    @media (max-width: 1080px) {
       margin-bottom: 2rem;
       height: 9rem;
     }
