@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const LineContainer = styled.div`
+export const LineContainer = styled.li`
   display: flex;
   align-items: center;
 `

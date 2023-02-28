@@ -10,7 +10,7 @@ export const ButtonContainer = styled.button<ButtonContainerProps>`
   border: none;
   cursor: pointer;
   transition: all 0.3s ease;
-  opacity: ${(props) => Number(props.opacity) || 1};
+  opacity: ${(props) => Number(props.opacity) ?? 1};
 
   &:hover {
     transform: translateY(-2px);

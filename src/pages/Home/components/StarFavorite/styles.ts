@@ -16,5 +16,6 @@ export const StarImage = styled.img<ImageProps>`
       position: absolute;
       top: 12px;
       left: 12px;
+      margin: 0;
     `}
 `

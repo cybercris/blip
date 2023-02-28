@@ -6,6 +6,7 @@ export const HeaderContainer = styled.header`
   justify-content: flex-end;
   align-items: center;
   margin-bottom: 2.5rem;
+  flex-wrap: wrap;
 
   input {
     width: 19.5rem;

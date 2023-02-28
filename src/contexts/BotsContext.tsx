@@ -6,7 +6,7 @@ import {
   useState,
 } from 'react'
 import { Bot } from '../@types'
-import { api } from '../services/api'
+import { fetch } from '../utils/fetch'
 import { generateShortName } from '../utils/formatter'
 
 interface BotsContextType {
@@ -25,8 +25,8 @@ export function BotsContextProvider({ children }: BotsContextProviderProps) {
 
   useEffect(() => {
     async function fetchBots() {
-      const response = await api.get('/bots')
-      const updatedBots = updateBots(response.data)
+      const bots = await fetch('/bots')
+      const updatedBots = updateBots(bots)
       setBots(updatedBots)
     }
 
