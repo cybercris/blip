@@ -1,4 +1,4 @@
-export const dateFormatter = (dateString: Date) => {
+export const dateFormatter = (dateString: string) => {
   const date = new Date(dateString)
   return new Intl.DateTimeFormat('pt-BR').format(date)
 }

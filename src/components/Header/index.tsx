@@ -1,6 +1,8 @@
-import { HeaderContainer } from './styles'
-import BlipLogo from '../../assets/blip-logo.svg'
+import React from 'react'
 import { NavLink } from 'react-router-dom'
+
+import BlipLogo from '../../assets/blip-logo.svg'
+import { HeaderContainer } from './styles'
 
 export function Header() {
   return (

@@ -1,7 +1,7 @@
 export interface Bot {
   name: string
   type: string
-  created: Date
+  created: string
   isFavorite: Boolean
   shortName: string
 }
@@ -21,10 +21,10 @@ export interface BotDetailed {
   shortName: string
   description: string
   image: string
-  updated: Date
+  updated: string
   culture: string
   analytics: BotAnalytics
   name: string
   type: string
-  created: Date
+  created: string
 }

@@ -1,7 +1,7 @@
+import React from 'react'
 import { Bot } from '../../../../@types'
 import { BotCard } from '../BotCard'
 import { BotLine } from '../BotLine'
-import { BlocksContainer, ListContainer } from './styles'
 
 interface BotListProps {
   bots: Bot[]
@@ -9,12 +9,13 @@ interface BotListProps {
 }
 
 export function BotsList({ bots, isBlockView }: BotListProps) {
-  function renderBot(bot: Bot, index: number) {
-    const BotComponent = isBlockView ? BotCard : BotLine
-    return <BotComponent bot={bot} index={index} />
-  }
+  const BotComponent = isBlockView ? BotCard : BotLine
 
-  const BotContainer = isBlockView ? BlocksContainer : ListContainer
-
-  return <BotContainer>{bots.map(renderBot)}</BotContainer>
+  return (
+    <>
+      {bots.map((bot, index) => (
+        <BotComponent key={index} bot={bot} />
+      ))}
+    </>
+  )
 }

@@ -1,5 +1,6 @@
-import * as React from 'react'
-import { render, screen } from '@testing-library/react'
+import React from 'react'
+import { render } from '@testing-library/react'
+import { BrowserRouter } from 'react-router-dom'
 import { Home } from '.'
 
 jest.mock('../../contexts/BotsContext', () => {
@@ -50,6 +51,10 @@ jest.mock('../../contexts/FavoritesContext', () => {
 
 describe('Home page', () => {
   it('should render correctly', () => {
-    render(<Home />)
+    render(
+      <BrowserRouter>
+        <Home />
+      </BrowserRouter>,
+    )
   })
 })

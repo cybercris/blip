@@ -10,10 +10,9 @@ import { BotCardContainer, BotContainer, BotImg, InfoContainer } from './styles'
 
 interface BotCardProps {
   bot: Bot
-  index: number
 }
 
-export function BotCard({ bot, index }: BotCardProps) {
+export function BotCard({ bot }: BotCardProps) {
   function handleLinkClick(
     event: React.MouseEvent<HTMLAnchorElement, MouseEvent>,
   ) {
@@ -22,7 +21,7 @@ export function BotCard({ bot, index }: BotCardProps) {
     }
   }
   return (
-    <BotCardContainer key={index}>
+    <BotCardContainer>
       <Link
         to={`${bot?.shortName}/details`}
         onMouseDown={(event) => handleLinkClick(event)}

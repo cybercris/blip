@@ -4,9 +4,15 @@ module.exports = {
   transform: {
     '^.+\\.(js|jsx|ts|tsx)$': '<rootDir>/node_modules/babel-jest',
   },
+  globals: {
+    'ts-jest': {
+      tsconfig: '<rootDir>/tsconfig.json',
+      esModuleInterop: true,
+    },
+  },
   testEnvironment: 'jsdom',
   moduleNameMapper: {
-    '\\.(scss|css|sass|png|jpg|webp|ttf|woff|woff2|svg|mp4)$':
-      'identity-obj-proxy',
+    '\\.(scss|css|sass)$': 'identity-obj-proxy',
+    '^.+\\.svg$': 'jest-svg-transformer',
   },
 }

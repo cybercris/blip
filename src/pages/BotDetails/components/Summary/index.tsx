@@ -1,3 +1,4 @@
+import React from 'react'
 import { Card } from '../../../../components/Card'
 import { Button } from '../../../../components/Button'
 
@@ -61,7 +62,7 @@ export function Summary({ bot }: SummaryProps) {
               <img src={MessageSentImg} alt="Messages sent" />
               <div>
                 <h1>{bot?.analytics?.message?.sent}</h1>
-                <h4>Mensagens recebidas</h4>
+                <h4>Mensagens enviadas</h4>
               </div>
             </MessagesSentContainer>
           </Card>

@@ -1,3 +1,4 @@
+import React from 'react'
 import { Link } from 'react-router-dom'
 
 import { Card } from '../../../../components/Card'
@@ -10,15 +11,14 @@ import { BotContainer, BotImg, InfoContainer, LineContainer } from './styles'
 
 interface BotLineProps {
   bot: Bot
-  index: number
 }
 
-export function BotLine({ bot, index }: BotLineProps) {
+export function BotLine({ bot }: BotLineProps) {
   return (
     <LineContainer>
       <StarFavorite bot={bot} />
       <Card grow>
-        <Link to={`${bot?.shortName}/details`} key={index}>
+        <Link to={`${bot?.shortName}/details`}>
           <BotContainer>
             <InfoContainer>
               <BotImg />

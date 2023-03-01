@@ -1,3 +1,4 @@
+import React from 'react'
 import { Bot } from '../../../../@types'
 import { BotsList } from '../BotsList'
 import { BotsSectionContainer } from './styles'
