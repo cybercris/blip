@@ -46,7 +46,7 @@ compartilhada a collection com explicações de como utilizar os endpoints;
 
 ## :cloud: Demo
 
-Deploy: [https://63fe6432cb73b70008c52dd3--blip-crssoares.netlify.app/](https://63fe6432cb73b70008c52dd3--blip-crssoares.netlify.app/)
+Deploy: [https://blip-crssoares.netlify.app/](https://blip-crssoares.netlify.app/)
 
 ## :space_invader: Features
 
