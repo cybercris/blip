@@ -3,7 +3,7 @@ import { render, screen } from '@testing-library/react'
 import { Footer } from '.'
 
 describe('Button component', () => {
-  it('should render correctly correctly', () => {
+  it('should render correctly', () => {
     render(<Footer />)
 
     expect(

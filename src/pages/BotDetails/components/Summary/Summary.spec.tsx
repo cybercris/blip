@@ -20,7 +20,7 @@ const mockBot = {
 }
 
 describe('Button component', () => {
-  it('should render correctly correctly', () => {
+  it('should render correctly', () => {
     render(<Summary bot={mockBot} />)
 
     expect(screen.getByText(/region and idiom/i)).toBeInTheDocument()
@@ -28,14 +28,14 @@ describe('Button component', () => {
     expect(screen.getByText(/mensagens recebidas/i)).toBeInTheDocument()
     expect(screen.getByText(/mensagens enviadas/i)).toBeInTheDocument()
   })
-  it('should render correctly the correct bot analytics data', () => {
+  it('should render the correct bot analytics data', () => {
     render(<Summary bot={mockBot} />)
 
     expect(screen.getByText('2')).toBeInTheDocument()
     expect(screen.getByText('10000')).toBeInTheDocument()
     expect(screen.getByText('10001')).toBeInTheDocument()
   })
-  it('should render correctly the correct account status', () => {
+  it('should render the correct account status', () => {
     render(<Summary bot={mockBot} />)
 
     expect(screen.getByText(/status account/i)).toBeInTheDocument()
