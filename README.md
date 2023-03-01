@@ -16,33 +16,33 @@
 
 ## :rocket: About
 
-Desafio: Lista de contatos inteligentes
+Challenge: Smart contact list
 
-Você precisa construir um App em React que faça listagem dos contatos inteligentes
-conforme o layout no Figma.
+You need to build an App in React that lists smart contacts
+according to the layout in Figma.
 
-Requisitos:
+Requirements:
 
-A aplicação deverá cumprir todos os requisitos funcionais abaixo. Lembre-se também de
-seguir atentamente as diretrizes de entrega do projeto :)
-- Listagem de contatos inteligentes;
-- Adicionar um contato na listagem de favoritos;
-- Permitir alterar a forma de visualização (lista/blocos);
-- Permitir ordenação por ordem alfabética;
-- Permitir ordenação por data;
-- Permitir busca por nome dos contatos;
-- Ao clicar em um contato, deverá ser redirecionado para uma tela contendo os detalhes
-daquele contato que foi clicado
+The application must meet all of the functional requirements below. Also remember to
+carefully follow the project delivery guidelines :)
+- Smart contact list;
+- Add a contact to the favorites list;
+- Allow changing the way of visualization (list/blocks);
+- Allow sorting in alphabetical order;
+- Allow sorting by data;
+- Allow search by name of contacts;
+- When clicking on a contact, you should be redirected to a screen containing the details
+that contact that was clicked
 
-Diretrizes de entrega:
+Delivery guidelines:
 
-- Utilizar React JS;
-- Utilizar algum pré-processador de CSS (SASS, LESS, Stylus...) ou algum framework de
-CSS-in-JS (styled-components, Tailwind, …);
-- Implementação de acordo com o Figma Design;
-- Utilizar a API de contatos inteligentes (Swagger) - também está disponível na pasta
-compartilhada a collection com explicações de como utilizar os endpoints;
-- Realizar implementação de testes e garantir a cobertura do código.
+- Use ReactJS;
+- Using some CSS pre-processor (SASS, LESS, Stylus...) or some CSS framework
+CSS-in-JS (styled components, Tailwind, …);
+- Implementation according to Figma Design;
+- Utilizing a Smart Contacts API (Swagger) - is also available in the folder
+shared the collection with encouragement on how to use endpoints;
+- Perform test implementation and ensure code coverage
 
 ## :cloud: Demo
 
